@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 false
         );
 
-        TextView userName = findViewById(R.id.userName);    //define user name
+        TextView userName = findViewById(R.id.userName);    //define user name.
         userName.setText(user.getName());
 
         TextView userDescription = findViewById(R.id.userDescription);  //define description
