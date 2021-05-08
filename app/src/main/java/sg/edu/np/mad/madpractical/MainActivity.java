@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import sg.edu.np.mad.madpractical.R;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         TextView userName = findViewById(R.id.userName);    //define user name.
-        userName.setText(user.getName());
+        userName.setText("MAD" + getIntent().getIntExtra("randomNum",0));
 
         TextView userDescription = findViewById(R.id.userDescription);  //define description
         userDescription.setText(user.getDescription());
@@ -45,12 +46,24 @@ public class MainActivity extends AppCompatActivity {
                     user.setFollowed(false);
                     followButton.setText("Follow");
                     Log.v(TAG, "User is not Followed.");
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(
+                            MainActivity.this,
+                            "Unfollowed",
+                            duration);
+                    toast.show();
                 }
 
                 else {
                     user.setFollowed(true); //if true (followed), set to true and set text to Followed
                     followButton.setText("Followed");
                     Log.v(TAG, "User is Followed.");
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(
+                            MainActivity.this,
+                            "Followed",
+                            duration);
+                    toast.show();
                 }
             }
         });
